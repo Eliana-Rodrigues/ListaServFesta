@@ -1,5 +1,7 @@
 const express= require('express');
 
+const database = require('./database');
+
 const server = express();
 
 server.use(express.json()); 
@@ -14,8 +16,9 @@ const produtos = [
     { produto: 'Carvão',marca: 'Brazero', valor:8.50, volume: 2.5 +'KG', quantidade:20 },
 ]
 
-server.get('/produtos', function(request, response) {
-    response.json(produtos);
+server.get('/produtos', async function(request, response) {
+   const dados = await database.read();
+   return response.json(dados);
 })
 
 server.post('/produtos', function(request, response) {
