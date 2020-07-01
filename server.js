@@ -1,11 +1,11 @@
 const express= require('express');
-
+const cors = require('cors');
 const database = require('./database');
 
 const server = express();
 
 server.use(express.json()); 
-
+server.use(cors());
 const produtos = [
     { produto: 'Vinho', marca: 'San_German', valor: 18.00 , volume: 750 +'ML', quantidade:10 },
     { produto: 'Whisky',marca: 'Red_Label', valor: 90.00, volume: 900 +'ML', quantidade:3 },
