@@ -13,7 +13,7 @@ server.get('/produtos', async function(request, response) {
 })
 
 server.post('/produtos', async function(request, response) {
-     const {produto, marca,valor, volume, quantidade} = request.body;
+    const {produto, marca,valor, volume, quantidade} = request.body;
     await database.create({produto, marca, valor, volume, quantidade});
     response.status(204).send();
 })
