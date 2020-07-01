@@ -16,7 +16,7 @@ const produtos = [
     { produto: 'Carvão',marca: 'Brazero', valor:8.50, volume: 2.5 +'KG', quantidade:20 },
 ]
 
-server.get('/produtos', async function(request, response) {
+server.get('/produtos', async function(request, response) { 
    const dados = await database.read();
    return response.json(dados);
 })
